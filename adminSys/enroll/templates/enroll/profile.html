@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile </title>
+
+  </head>
+  <body>
+    <h1>Welcome {{name}} Profile</h1>
+    <br>
+    {% if users != None %}
+    <h2>List of Users</h2>
+    {% for user in users %}
+    <a href="{% url 'userdetail' user.id %}"> {{user.username}}</a>
+    <br> <br>
+    {% endfor %}
+    {% endif %}
+    <br>
+    {% if messages %}
+    {% for message in messages  %}
+    <small {% if message.tags %} class="{{message.tags}}"  {% endif %}>{{message}}</small>  
+
+    {% endfor %}
+    {% endif %}
+    <br><br>
+    <form action="" method="POST" novalidate>
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" value="Save">
+    </form>
+    <br><br>
+    <a href="{% url 'logout' %}">Logout</a>
+    <br>
+    <a href="{% url 'changepass' %}">Change Password</a>
+</body>
+</html>

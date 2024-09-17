@@ -1,0 +1,26 @@
+<nav>
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="{% url 'about' %} ">About</a>
+      </li>
+      {% comment %} {% url 'course' as co %}
+      <li><a href="{{ co }}">Course</a></li> {% endcomment %}
+      <li>
+        <a href="{% url 'course' %}">Courses</a>
+      </li>
+      {% comment %}jasy url patterrn ma about/ ke sath path likha ha wasy likhna abh{% endcomment %}
+
+      {% comment %} <li>
+        <a href="/">Home</a>
+      </li> {% endcomment %}
+      {% comment %} <li>
+        <a href="/about">About</a>
+      </li> {% endcomment %}
+      {% comment %} <li>
+        <a href="/cor/dj">Courses</a>
+      </li> {% endcomment %}
+    </ul>
+</nav>

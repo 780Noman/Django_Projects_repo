@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+  </head>
+  <body>
+    <h1>Registeration form</h1>
+    <form action="" method="POST"  novalidate>
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" id="submit" value="submit" />
+      
+    </form>
+    <br><hr>
+    <form action="" method="get">
+      <table>{{ form }}</table>
+      {% comment %} {{form.as_ul}} {% endcomment %}
+      {% comment %} {{form.as_table}} {% endcomment %}
+      {% comment %} {{form.as_p}} {% endcomment %}
+      {% comment %} {{form.name}} {% endcomment %}
+      {% comment %} {{form.email}} {% endcomment %}
+      
+      <hr><br>
+      {% comment %} Rendering form field  {% endcomment %}
+      <div>
+        <label for="{{form.name.id_for_label}}">Name :</label>
+        <input type="text" required name="name" id="id_name">
+      </div>
+      <div>
+        {{form.name.label_tag}}
+        {{form.name}}
+      </div>
+      <input type="submit" id="submit" value="submit" />
+    <br> <hr>
+      {% comment %} USING FOR LOOP TO RENDER FIELDS {% endcomment %}
+    {% for field in form %} <!--form.hidden_fields--> <!-- for field in form.visible_fields-->
+    {{field.label_tag}}
+    {{field}}
+    {% endfor %}
+    </form>
+
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>django</title>
+    <style>
+        th,td{
+            border: 2px black solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Info Page</h1>
+    {% if stu %}
+    <h1>Show Data</h1>
+    {{stu}}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>comment</th>
+        </tr>
+        {% for st in stu %}
+        <tr>
+            <td>{{st.id}}</td>
+            <td>{{st.stuid}}</td>
+            <td>{{st.stuname}}</td>
+            <td>{{st.stuemail}}</td>
+            <td>{{st.stupass}}</td>
+            <td>{{st.comment}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% for st in stu %}
+   <p>{{st.id}}
+    {{st.stuid}}
+    {{st.stuname}}
+    {{st.stuemail}}
+    {{st.stupass}}
+    {{st.comment}}</p> 
+    {% endfor %}
+    {% else %}
+    <h1>No Data</h1>
+    {% endif %}
+</body>
+</html>

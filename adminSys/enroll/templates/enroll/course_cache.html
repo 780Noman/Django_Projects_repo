@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% comment %} Three types of cache exist :
+1. Per site cache (db caching,filebased cache,local memory cache) must add 2 lines code in MIDDLEWARE LIST
+2. per view cache (db caching,filebased cache,local memory cache)
+3. template fragment cache (db caching,filebased cache,local memory cache)
+{% endcomment %}
+{% load cache %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile </title>
+
+  </head>
+  <body>
+    <h1>Welcome Templete cache</h1>
+    <h3>course1</h3>
+    <h3>course2</h3>
+    {% comment %} This below lines will cache for 30 second {% endcomment %}
+    {% cache 30 course %}
+    <h3>course3</h3>
+    <h3>course4</h3>
+    {% endcache course %}
+
+</body>
+</html>

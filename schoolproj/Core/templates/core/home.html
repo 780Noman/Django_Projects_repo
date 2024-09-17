@@ -1,0 +1,9 @@
+{% extends 'core/base.html' %}
+{% block title %}
+  Home
+{% endblock %}
+
+{% block content %}
+  <h2>I am new Home page {{d}}</h2>
+{% include 'core/topcourses.html' with p='PHP' only %}
+{% endblock content %}

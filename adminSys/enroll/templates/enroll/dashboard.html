@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile </title>
+
+  </head>
+  <body>
+    <h1>Welcome Dashboard Page {{name}}</h1>
+    {% comment %} Check the permission is assign the user  {% endcomment %}
+    {% if perms.enroll.delete_blog %}
+    <input type="button" value="Delete"> <br><br>
+    {% else %}
+    <h2>No Delete Permission</h2>
+    {% endif %}
+
+    {% comment %} <input type="button" value="Add"> <br><br> {% endcomment %}
+    {% comment %} <input type="button" value="Change"> <br><br> {% endcomment %}
+    {% comment %} <input type="button" value="View"> <br><br> {% endcomment %}
+    <br><br>
+    <a href="{% url 'logout' %}">Logout</a>
+    <br>
+    <a href="{% url 'changepass' %}">Change Password</a>
+</body>
+</html>

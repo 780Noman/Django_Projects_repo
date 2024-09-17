@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile </title>
+
+  </head>
+  <body>
+   <h1>Get session {{name}}</h1>
+   <hr>
+  {% for key in keys %}
+  {{key}} <br><br>
+  {% endfor %}
+  <hr>
+  {% for key,value in items %}
+  {{key}}   {{value}} <br> <br> 
+  {% endfor %}
+  {{age}}
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% comment %}jo code ap ke pass comman nah ho osy block ke ander rakh dey{% endcomment %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.css' %}" />
+    <title>
+      {% block title %}
+        Others
+      {% endblock %}
+    </title>
+    {% block link %}
+      <link rel="stylesheet" href="{% static 'core/css/core.css' %}" />
+    {% endblock %}
+  </head>
+  <body>
+    {% include 'core/navbar.html' %}
+    <i class="fa-solid fa-house"></i>
+    {% block content %}
+
+    {% endblock %}
+    {% block content1 %}
+
+    {% endblock %}
+    {% block content2 %}
+
+    {% endblock %}
+    {% comment %}jitny chaye block ap use ker sakty koi hard rule nhi{% endcomment %}
+    <script src="{% static 'core/js/jquery.js' %}"></script>
+    <script src="{% static 'core/js/popper.js' %}"></script>
+    <script src="{% static 'core/js/bootstrap.js' %}"></script>
+    <script src="{% static 'core/js/all.min.js' %}"></script>
+  </body>
+</html>
