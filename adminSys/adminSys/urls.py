@@ -19,7 +19,7 @@ from django.urls import path
 from enroll import views
 
 #import the decotrator of login required
-"""before starting server run migration command"""
+"""before starting server run migration command must then start server"""
 
 urlpatterns = [
     path('admin/', admin.site.urls),
