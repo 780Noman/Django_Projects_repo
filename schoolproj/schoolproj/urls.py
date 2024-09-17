@@ -26,5 +26,6 @@ urlpatterns = [
     path('enroll/',include('enroll.urls')),
     path('stu/',include('enroll.urls')),
     # path('fee/',include('fees.urls')),
+ 
     
 ]
