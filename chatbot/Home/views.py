@@ -18,7 +18,6 @@ load_dotenv()  # Load the .env file
 api_key = os.getenv("OPENAI_API_KEY")
 openai.api_key = api_key
 
-
 def chat(request):
     return render(request, "index.html")
 
@@ -49,6 +48,7 @@ def chatAPI(request):
         except Exception as e:
             logger.error("Error in chatAPI: %s", str(e))
             return JsonResponse({"error": str(e)}, status=500)
+    
     return HttpResponse("Bad request!!", status=400)
 # import os
 # from django.shortcuts import render, HttpResponse
