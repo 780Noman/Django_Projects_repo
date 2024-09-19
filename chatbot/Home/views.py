@@ -15,8 +15,8 @@ import os
 import openai
 
 load_dotenv()  # Load the .env file
-api_key = os.getenv("OPENAI_API_KEY")
-openai.api_key = api_key
+# api_key = os.getenv("OPENAI_API_KEY")
+# openai.api_key = api_key
 
 def chat(request):
     return render(request, "index.html")
