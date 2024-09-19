@@ -11,6 +11,7 @@ def survey_view(request):
             response_text = request.POST.get(f"response_{question.id}")
             selected_option_ids = request.POST.getlist(f"options_{question.id}")
 
+
             response = CustomerResponse.objects.create(
                 feedback=feedback,
                 question=question,
