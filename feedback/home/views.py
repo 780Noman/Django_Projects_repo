@@ -1,8 +1,10 @@
-
 from django.shortcuts import render, redirect
 from .models import Questions, CustomerFeedback, CustomerResponse, Options
 
-def survey_view(request):
+def surveys(request):
+    feedback = CustomerFeedback.objects.all()
+    return render(request, 'surveys.html', {'feedbacks': feedback})
+def survey_view(request,id):
     questions = Questions.objects.all()
 
     if request.method == 'POST':
@@ -30,7 +32,6 @@ def survey_view(request):
 def thank_you(request):
     return render(request, 'thank_you.html')
 
-
 def survey_results(request):
     data = []
 
@@ -39,8 +40,8 @@ def survey_results(request):
     for question in questions:
         responses = CustomerResponse.objects.filter(question=question)
         if question.question_type in ['Radio', 'Checkbox']:
-            options = question.options.all()
-            option_counts = {option.option_name: responses.filter(selected_options=option).count() for option in options}
+            options = question.option.all()  # Access the related options
+            option_counts = {option.option_name: responses.filter(selected_option=option).count() for option in options}
             data.append({
                 'question': question.question,
                 'labels': list(option_counts.keys()),
@@ -48,3 +49,6 @@ def survey_results(request):
             })
     print(data)
     return render(request, 'results.html', {'data': data})
+
+
+
