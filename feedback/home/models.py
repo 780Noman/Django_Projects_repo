@@ -23,7 +23,10 @@ class Options(models.Model):
         return f"{self.option_name} {self.question.question}"
 
 class CustomerFeedback(models.Model):
+ #   title = models.CharField(max_length=255)  # Add this field
+  #  description = models.TextField(null=True, blank=True)  # Add this field
     question = models.ManyToManyField(Questions)
+
 
 class CustomerResponse(models.Model):
     feedback = models.ForeignKey(CustomerFeedback, on_delete=models.CASCADE)
