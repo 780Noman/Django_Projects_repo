@@ -1,26 +1,33 @@
 {% extends 'base.html' %}
 
-{% block css %}
-.card-content{
-    background:blue;
-    color:Black;
-}
-{% endblock css %}
-
+{% block title %}Survey Form{% endblock %}
+{% block navbar %}
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center">Survey</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <a href="{% url 'survey_results' %}"class="btn waves-effect waves-light">Results</a>
+        </li>
+        <li>
+          <a href="/" class="btn waves-effect waves-light">Home</a>
+        </li>
+      </ul>
+    </div>
+{% endblock navbar %}
 {% block content %}
 <div class="container">
-  <form action="" method='POST'>
+  <form action="" method="POST">
     {% csrf_token %}
     {% for question in questions %}
     <div class="card">
       <div class="card-content">
-        <span class="card-title hide-on-inspect">{{ question.question }}</span>
+        <span class="card-title">{{ question.question }}</span>
         <div class="input-field">
           {% if question.question_type == "Text" %}
           <input required type="text" name="response_{{ question.id }}" class="validate" placeholder="Enter your Answer">
           
           {% elif question.question_type == "BigText" %}
-          <textarea required name="response_{{ question.id }}" id="textarea1" class="materialize-textarea" placeholder="Your Detailed Answer.."></textarea>
+          <textarea required name="response_{{ question.id }}" class="materialize-textarea" placeholder="Your Detailed Answer.."></textarea>
           
           {% elif question.question_type == "Radio" %}
           {% for option in question.option.all %}
@@ -35,20 +42,18 @@
           {% for option in question.option.all %}
           <p>
             <label for="option_{{ option.id }}">
-              <input  type="checkbox" name="options_{{ question.id }}" id="option_{{ option.id }}" value="{{ option.id }}">
+              <input type="checkbox" name="options_{{ question.id }}" id="option_{{ option.id }}" value="{{ option.id }}">
               <span>{{ option.option_name }}</span>
             </label>
           </p>
           {% endfor %}
-          
-
           {% endif %}
         </div>
       </div>
     </div>
     {% endfor %}
     <div class="center-align">
-    <button type="submit" class="btn waves-effect waves-light">Submit</button>
+      <button type="submit" class="btn waves-effect waves-light">Submit</button>
     </div>
   </form>
 </div>

@@ -3,62 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      {% block title %}
-        Survey Project
-      {% endblock %}
-    </title>
+    <title>{% block title %}Survey Project{% endblock %}</title>
     <!-- Materialize CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet" />
-    <!-- Custom CSS for Blue Color -->
-    
+
     <style>
-        {% block css %}
+      {% block css %}
+      /* Navbar background in blue */
       .nav-wrapper {
-        background-color: #2196f3 !important; /* Change navbar background to blue */
+        background-color: #2196f3 !important; /* Light Blue */
       }
-      .card.blue-grey.darken-1 {
-        background-color: #1976d2 !important; /* Change card background to a different shade of blue */
-      }
-      .card-content .card-title,
-      .card-content p {
-        color: white !important; /* Keep text white for contrast */
-      }
+
+      /* Footer background in blue */
       .page-footer {
-        background-color:#2196F3; 
-        padding-top: 20px; /* Footer background to blue */
+        background-color: #1976d2 !important; /* Dark Blue */
+        margin-top: 100px;
       }
+
+      /* Card content styling */
+      .card-content {
+        background-color: #2196f3 !important; /* Light Blue for cards */
+        color: white !important; /* Make text color white */
+      }
+
+      /* Ensure question text is clearly visible */
+      .card-content .card-title {
+        color: #ffffff !important; /* White color for questions */
+        font-weight: bold; /* Make the questions stand out */
+      }
+
+      /* Option (radio/checkbox) styling */
+      .input-field label {
+        color: #ffffff !important; /* White color for options labels */
+      }
+
+      /* Input field styling */
+      .input-field input[type="text"],
+      .input-field textarea {
+        color: #000000 !important; /* Black text for input */
+        background-color: #ffffff !important; /* White background for inputs */
+      }
+
+      /* Button color */
+      .btn {
+        background-color: #1976d2 !important; /* Blue for buttons */
+      }
+
       {% endblock css %}
-    </style> 
-  
+    </style>
+
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
+
   <body>
     <!-- Navbar -->
-      <nav>
-    {% block navbar %}
-
-        <div class="nav-wrapper">
-          <a href="/" class="brand-logo center">Survey</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li>
-              <a href="{% url 'survey_results' %}">Results</a>
-            </li>
-          </ul>
-        </div>
-    {% endblock %}
-
-      </nav>
-    <!-- Main Content -->
-<div class="container">
-      {% block content %}
-
+    <nav>
+      {% block navbar %}
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo center">Survey</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="{% url 'survey_results' %}" class="btn waves-effect waves-light">Results</a></li>
+        </ul>
+      </div>
       {% endblock %}
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+      {% block content %}{% endblock %}
     </div>
 
     <!-- Footer -->
-    <footer class="page-footer" >
+    <footer class="page-footer">
       <div class="container">
         <div class="row">
           <div class="col l6 s12">
@@ -68,18 +85,10 @@
           <div class="col l4 offset-l2 s12">
             <h5 class="white-text">Connect With Us</h5>
             <ul>
-              <li>
-                <a class="grey-text text-lighten-3" href="#!">Facebook</a>
-              </li>
-              <li>
-                <a class="grey-text text-lighten-3" href="#!">Twitter</a>
-              </li>
-              <li>
-                <a class="grey-text text-lighten-3" href="#!">LinkedIn</a>
-              </li>
-              <li>
-                <a class="grey-text text-lighten-3" href="#!">Contact Us</a>
-              </li>
+              <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">LinkedIn</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
             </ul>
           </div>
         </div>

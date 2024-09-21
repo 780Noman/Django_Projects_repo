@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 
+{% block title %}Thank You{% endblock %}
+
 {% block content %}
 <div class="container">
     <h4 class="center-align">Thank You!</h4>
-    <p>Your responses have been recorded. We appreciate your participation in this survey.</p>
+    <p class="center-align">Your responses have been recorded. We appreciate your participation in this survey.</p>
+    
+    <!-- Add a button to go back to the home page -->
+    <div class="center-align" style="margin-top: 30px;">
+        <a href="/" class="btn btn-custom">Home</a>
+        <a href="{% url 'survey_results' %}" class="btn btn-custom">View Results</a>
+    </div>
 </div>
-
 {% endblock %}

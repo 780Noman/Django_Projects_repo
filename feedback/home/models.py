@@ -23,8 +23,8 @@ class Options(models.Model):
         return f"{self.option_name} {self.question.question}"
 
 class CustomerFeedback(models.Model):
- #   title = models.CharField(max_length=255)  # Add this field
-  #  description = models.TextField(null=True, blank=True)  # Add this field
+    title = models.CharField(max_length=255,default='Gernal Survey')  # Add this field
+    description = models.TextField(null=True, blank=True)  # Add this field
     question = models.ManyToManyField(Questions)
 
 
