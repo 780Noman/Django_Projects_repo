@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Questions, CustomerFeedback, CustomerResponse, Options
 
 def surveys(request):
+
     feedback = CustomerFeedback.objects.all()
     return render(request, 'surveys.html', {'feedbacks': feedback})
 def survey_view(request,id):
@@ -34,7 +35,7 @@ def thank_you(request):
 
 def survey_results(request):
     data = []
-
+    
     questions = Questions.objects.all()
 
     for question in questions:
