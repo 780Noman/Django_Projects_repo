@@ -35,9 +35,7 @@ def thank_you(request):
 
 def survey_results(request):
     data = []
-    
     questions = Questions.objects.all()
-
     for question in questions:
         responses = CustomerResponse.objects.filter(question=question)
         if question.question_type in ['Radio', 'Checkbox']:
