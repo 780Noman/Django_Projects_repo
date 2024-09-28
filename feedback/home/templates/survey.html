@@ -30,7 +30,6 @@
           {% elif question.question_type == "BigText" %}
           <textarea required name="response_{{ question.id }}" class="materialize-textarea" placeholder="Your Detailed Answer.."></textarea>
           
-          
           {% elif question.question_type == "Radio" %}
           {% for option in question.option.all %}
           <p>
