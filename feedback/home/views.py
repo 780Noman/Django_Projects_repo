@@ -6,6 +6,7 @@ def surveys(request):
     feedback = CustomerFeedback.objects.all()
     return render(request, 'surveys.html', {'feedbacks': feedback})
 def survey_view(request,id):
+    
     questions = Questions.objects.all()
 
     if request.method == 'POST':
